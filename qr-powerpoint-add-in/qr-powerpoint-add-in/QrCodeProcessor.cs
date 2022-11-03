@@ -2,11 +2,13 @@
 
 namespace qr_powerpoint_add_in
 {
-    public class QrCodeProcessor
+    public static class QrCodeProcessor
     {
-        public static string ConvertUrlToQrCode(string url)
+        public static void ConvertUrlToQrCode(string url, string filename)
         {
-            return QRCodeWriter.CreateQrCode(url, 500, QRCodeWriter.QrErrorCorrectionLevel.Medium).ToDataUrl();
+            string logoFilename = "logo.png";
+            QRCodeLogo logo = new QRCodeLogo(logoFilename, 75);
+            QRCodeWriter.CreateQrCodeWithLogo(url, logo, 250).SaveAsPng(filename);
         }
     }
 }
