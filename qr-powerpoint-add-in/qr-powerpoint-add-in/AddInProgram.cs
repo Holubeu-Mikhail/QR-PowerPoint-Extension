@@ -64,48 +64,6 @@ namespace qr_powerpoint_add_in
             _encodedUrl = url;
         }
 
-        void CreateImageOnShapeChanged(PowerPoint.Selection selection)
-        {
-            var range = selection.ShapeRange;
-            foreach (var shape in range)
-            {
-                var sh = (PowerPoint.Shape)shape;
-                if (sh.TextFrame.HasText == Office.MsoTriState.msoTrue)
-                {
-                    string text = sh.TextFrame.TextRange.Text;
-                    if (Regex.IsMatch(text, @".*docs\.google\.com\/forms\/.*") && _encodedUrl != text)
-                    {
-                        QrCodeProcessor.ConvertUrlToQrCode(text, _filename);
-
-                        PowerPoint.Slide activeSlide = Globals.AddInProgram.Application.ActiveWindow.View.Slide;
-                        PowerPoint.Shape ppPicture = activeSlide.Shapes.AddPicture(_filename, Office.MsoTriState.msoTrue, Office.MsoTriState.msoTrue, 0, 0);
-                        ppPicture.LinkFormat.SourceFullName = _filename;
-                        _encodedUrl = text;
-
-                        File.Delete(_filename);
-                    }
-                }
-            }
-        }
-
-        private void CreateImageOnResize(PowerPoint.Shape shape)
-        {
-            var text = shape.TextFrame.TextRange.Text;
-            if (shape.TextFrame.HasText == Office.MsoTriState.msoTrue)
-            {
-                if (Regex.IsMatch(text, @".*docs\.google\.com\/forms\/.*"))
-                {
-                    QrCodeProcessor.ConvertUrlToQrCode(text, _filename);
-
-                    PowerPoint.Slide activeSlide = Globals.AddInProgram.Application.ActiveWindow.View.Slide;
-                    PowerPoint.Shape ppPicture = activeSlide.Shapes.AddPicture(_filename, Office.MsoTriState.msoTrue, Office.MsoTriState.msoTrue, 0, 0);
-                    ppPicture.LinkFormat.SourceFullName = _filename;
-
-                    File.Delete(_filename);
-                }
-            }
-        }
-
         #region VSTO generated code
 
         /// <summary>
