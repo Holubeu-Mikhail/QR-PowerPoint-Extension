@@ -6,9 +6,7 @@ namespace qr_powerpoint_add_in
     {
         public static void ConvertUrlToQrCode(string url, string filename)
         {
-            string logoFilename = "logo.png";
-            QRCodeLogo logo = new QRCodeLogo(logoFilename, 75);
-            QRCodeWriter.CreateQrCodeWithLogo(url, logo, 250).SaveAsPng(filename);
+            QRCodeWriter.CreateQrCode(url, 250).SaveAsPng(filename);
         }
     }
 }

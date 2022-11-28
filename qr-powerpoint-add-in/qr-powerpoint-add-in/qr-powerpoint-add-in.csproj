@@ -226,7 +226,6 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="KeyboardListener.cs" />
     <Compile Include="QrCodeProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
