@@ -132,6 +132,12 @@
     <Reference Include="IronSoftware.Drawing.Common, Version=2022.10.9851.0, Culture=neutral, PublicKeyToken=8d7e55c97b3e9835, processorArchitecture=MSIL">
       <HintPath>..\packages\IronSoftware.System.Drawing.2022.10.9851\lib\netstandard2.0\IronSoftware.Drawing.Common.dll</HintPath>
     </Reference>
+    <Reference Include="KeyboardHookManager, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KeyboardHookManager.1.1.0\lib\KeyboardHookManager.dll</HintPath>
+    </Reference>
+    <Reference Include="MouseKeyboardActivityMonitor, Version=4.0.5150.10665, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MouseKeyboardActivityMonitor.4.0.5150.10665\lib\net20\MouseKeyboardActivityMonitor.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -166,6 +172,7 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="WindowsBase" />
     <Reference Include="zxing, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
       <HintPath>..\packages\ZXing.Net.0.16.8\lib\net47\zxing.dll</HintPath>
     </Reference>
@@ -219,6 +226,7 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="KeyboardListener.cs" />
     <Compile Include="QrCodeProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -277,7 +285,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="PowerPoint" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="PowerPoint" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\16.0\PowerPoint\InstallRoot\Path#powerpnt.exe" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
         <Host Name="PowerPoint" GeneratedCodeNamespace="qr_powerpoint_add_in" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="AddInProgram.cs" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="AddInProgram.Designer.xml" GeneratedCode="AddInProgram.Designer.cs" PublishedHash="BF2E896BA43D86BF150D1151F53DDFFEA0F709BC" />
+          <HostItem Name="ThisAddIn" Code="AddInProgram.cs" CanonicalName="AddIn" PublishedHash="BF2E896BA43D86BF150D1151F53DDFFEA0F709BC" CanActivate="false" IconIndex="1" Blueprint="AddInProgram.Designer.xml" GeneratedCode="AddInProgram.Designer.cs" />
         </Host>
       </FlavorProperties>
     </VisualStudio>
